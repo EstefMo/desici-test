@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% block title %}Editar contacto{% endblock %}
+
+{% block content %}
+    <div class="alert alert-success" id="alert" style="display:none" role="alert">
+      Datos guardados correctamente
+   </div>
+<div class="container-sm text-center bg-body-secondary p-3 mt-5">
+
+      {% csrf_token %}
+      <nav>
+         <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-person" type="button" role="tab" aria-controls="nav-person" aria-selected="true">Contacto</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-address" type="button" role="tab" aria-controls="nav-address" aria-selected="false">Dirección</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-phone" type="button" role="tab" aria-controls="nav-phone" aria-selected="false">Teléfonos</button>
+         </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+         <div class="tab-pane fade show active mt-3" id="nav-person" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+            <div class="row">
+               <div class="col-md-12 mt-3">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Nombre*</span>
+                     <input type="text" class="form-control" aria-label="name" id="name" value="{{person.name}}" name="name" aria-describedby="basic-addon1">
+                     <input type="hidden" id="person_id" value="{{person.id}}">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="input-group mb-3">
+                  <span class="input-group-text">Apellidos*</span>
+                  <input type="text" class="form-control" aria-label="last_name" name="last_name" id="last_name" value="{{person.last_name}}" aria-describedby="basic-addon1">
+               </div>
+            </div>
+            <div class="row">
+               {% if person.picture %}
+               <div class="input-group mb-3">
+                  <span class="input-group-text" >Fotografia Actual*</span>
+                  <input type="text" class="form-control" value="{{person.picture}}" id="inputGroupFile02" name="picture" disabled>
+                  <br>
+                  <span class="input-group-text">Modificar</span>
+                  <input type="file" class="form-control"  id="picture" name="picture">
+               </div>
+               {% else %}
+               <div class="input-group mb-3">
+                  <span class="input-group-text">Fotografia*</span>
+                  <input type="file" class="form-control" id="inputGroupFile02" name="picture">
+               </div>
+               {% endif %}
+               <div class="row">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Fecha de nacimiento*</span>
+                     <input type="date" class="form-control" aria-label="birth_date" name="birth_date" id="birth_date" value="{{person.birth_date}}" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade mt-3" id="nav-address" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Calle*</span>
+                     <input type="text" class="form-control" aria-label="street_name" id="street_name" value="{{address.street_name}}" name="street_name" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Numero Externo*</span>
+                     <input type="text" class="form-control" aria-label="external_number" id="external_number" value="{{address.external_number}}"  name="external_number" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Numero Interno*</span>
+                     <input type="text" class="form-control" aria-label="last_name"  value="{{address.internal_number}}" id="internal_number" name="internal_number" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Colonia*</span>
+                     <input type="text" class="form-control" aria-label="last_name"  value="{{address.settlement}}" id="settlement" name="settlement" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Municipio*</span>
+                     <input type="text" class="form-control" aria-label="last_name"  value="{{address.district}}" id="district" name="district" aria-describedby="basic-addon1">
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Estado*</span>
+                     <select class="form-control" name="state" id="state" selected="{{address.state}}"  value="{{address.state}}" >
+                        <option value="AGU">Aguascalientes</option>
+                        <option value="BCN">Baja California</option>
+                        <option value="BCS">Baja California Sur</option>
+                        <option value="CAM">Campeche</option>
+                        <option value="CHP">Chiapas</option>
+                        <option value="CHH">Chihuahua</option>
+                        <option value="CMX">Ciudad de México</option>
+                        <option value="COA">Coahuila</option>
+                        <option value="COL">Colima</option>
+                        <option value="DUR">Durango</option>
+                        <option value="GUA">Guanajuato</option>
+                        <option value="GRO">Guerrero</option>
+                        <option value="HID">Hidalgo</option>
+                        <option value="JAL">Jalisco</option>
+                        <option value="MEX">México</option>
+                        <option value="MIC">Michoacán</option>
+                        <option value="MOR">Morelos</option>
+                        <option value="NAY">Nayarit</option>
+                        <option value="NLE">Nuevo León</option>
+                        <option value="OAX">Oaxaca</option>
+                        <option value="PUE">Puebla</option>
+                        <option value="QUE">Querétaro</option>
+                        <option value="ROO">Quintana Roo</option>
+                        <option value="SLP">San Luis Potosí</option>
+                        <option value="SIN">Sinaloa</option>
+                        <option value="SON">Sonora</option>
+                        <option value="TAB">Tabasco</option>
+                        <option value="TAM">Tamaulipas</option>
+                        <option value="TLA">Tlaxcala</option>
+                        <option value="VER">Veracruz</option>
+                        <option value="YUC">Yucatán</option>
+                        <option value="ZAC">Zacatecas</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="input-group mb-3">
+                     <span class="input-group-text">Referencias*</span>
+                     <textarea class="form-control" aria-label="references" id="references"  value="{{address.references}}"  name="references" aria-describedby="basic-addon1"></textarea>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane fade mt-3" id="nav-phone" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+            <div class="row" id="phone_forms">
+               <button type="button" class="btn btn-warning btn-md ms-3 mt-2 me-3 mb-1 col-sm-3  col-sm-offset-3 float-end" style="width:25% !imporant" onclick="add_new_form()">Agregar teléfono</button>
+               {% if numbers %}
+               {% for phone in numbers %}
+               <div class="row">
+                  <div class="col-md-10 border-bottom">
+                     <div class="row mt-3">
+                        <div class="col-md-12">
+                           <div class="input-group mb-1">
+                              <span class="input-group-text">Tipo*</span>
+                              <select class="form-control" name="type" id="type{{phone.id}}"   value="{{phone.type}}" >
+                                 <option value="1">Casa</option>
+                                 <option value="2">Teléfono móvil</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="input-group mb-1">
+                              <span class="input-group-text" >Teléfono*</span>
+                              <input type="text" class="form-control" id="number{{phone.id}}" aria-label="last_name"  value="{{phone.number}}" name="number" aria-describedby="basic-addon1">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="input-group mb-1">
+                              <span class="input-group-text" >Alias*</span>
+                              <input type="text" class="form-control" id="alias{{phone.id}}" aria-label="last_name" value="{{phone.alias}}" name="alias" aria-describedby="basic-addon1">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-2 border-bottom mt-3" >
+                     <button type="button" class="btn btn-danger btn-md mt-2 me-3 mb-1  float-end" style="width:25% !imporant" onclick="delete_number({{phone.id}})" >Eliminar</button>
+                     <button type="button" class="btn btn-success btn-md mt-2 me-3 mb-1 float-end" style="width:25% !imporant" onclick="save_phone_data({{phone.id}})">Guardar</button>
+                  </div>
+               </div>
+               {% endfor %}
+               {% endif %}
+            </div>
+         </div>
+      </div>
+</div>
+<button type="button" class="btn btn-primary mt-2 me-5 mb-1 float-end"   onclick="save_person_info()">Actualizar Contacto</button>
+<button type="button" class="btn btn-danger mt-2 me-3 mb-1 float-end" onclick="window.location.href='{% url 'person_view' %}' ">Cancelar</button>
+    <script>
+
+        function save_person_info(){
+            var success_person = false
+            var success_address = false
+            person = {
+               'name': $("#name").val(),
+               'last_name': $("#last_name").val(),
+               'picture' : $("#picture").val(),
+               'birth_date': $("#birth_date").val()
+            }
+            address = {
+                'street_name': $("#street_name").val(),
+                'external_number': $("#external_number").val(),
+                'internal_number': $("#internal_number").val(),
+                'settlement': $("#settlement").val(),
+                'district': $("#district").val(),
+                'state': $("#state").val(),
+                'references': $("#references").val(),
+                'person': $("#person_id").val()
+            }
+            $.ajax(
+                {
+                  url : "{{ BASE_DIR }}/phonebook/api/v1/person/"+$("#person_id").val()+"/",
+                  type: "PUT",
+                  data: person,
+                  statusCode: {
+                      200: function (response) {
+                        success_person = true
+                      },
+                  }
+            });
+          $.ajax({
+                  url : "{{ BASE_DIR }}/phonebook/api/v1/address/"+$("#person_id").val()+"/",
+                  type: "PUT",
+                  data: address,
+                  statusCode: {
+                      200: function (response) {
+                        success_address = true
+
+                      },
+                  }
+          });
+           setTimeout(function(){
+                 if(success_person && success_address){
+                    set_notification('Datos guardados correctamente', 'success')
+                  }
+            }, 3500);
+        }
+          function save_phone_data(id){
+            phone = {
+               'type': $("#type"+id).val(),
+               'number': $("#number"+id).val(),
+               'alias' : $("#alias"+id).val(),
+               'person' : $("#person_id").val(),
+               'id': id
+            }
+            $.ajax({
+               url : "{{ BASE_DIR }}/phonebook/api/v1/phone/"+id+"/",
+               type: "PUT",
+               data: phone,
+               statusCode: {
+                   200: function (response) {
+                          set_notification('Datos guardados correctamente', 'success')
+                   },
+                   400:  function (response) {
+                        console.log(response)
+                          set_notification('Datos guardados correctamente', 'success')
+                   },
+               }
+            });
+        }
+        function delete_number(id){
+            $.ajax(
+                {
+                  url : "{{ BASE_DIR }}/phonebook/api/v1/phone/"+id,
+                  type: "DELETE",
+                  statusCode: {
+                      200: function (response) {
+                      set_notification('Registro eliminado correctamente', 'danger')
+                         setTimeout(function(){
+                            window.location.reload();
+                          }, 3500);
+                      },
+                  }
+                  });
+        }
+         $(document).ready(function(){
+                $("option[value='{{address.state}}']").prop("selected",true);
+                $("#references").val('{{address.references}}')
+
+            });
+        function add_new_form(){
+            var div = $("#phone_forms").html()
+            $("#phone_forms").html(div + '<form action="'+"{% url 'phone_view_v1' %}"+'" method="POST"><div class="row mt-2">'+
+                               '<div class="col-md-10">'+
+                                    '<div class="row">'+
+                                        '<div class="col-md-12">'+
+                                            '<div class="input-group mb-1">'+
+                                                '<span class="input-group-text">Tipo*</span>'+
+                                                '<select class="form-control" name="type"   >'+
+                                                    '<option value="1">Casa</option>'+
+                                                    '<option value="2">Teléfono móvil</option>'+
+                                                '</select>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="row">'+
+                                        '<div class="col-md-12">'+
+                                           '<div class="input-group mb-1">'+
+                                                '<span class="input-group-text">Teléfono*</span>'+
+                                                '<input type="text" class="form-control" aria-label="last_name" name="number" aria-describedby="basic-addon1">'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="row">'+
+                                            '<div class="col-md-12">'+
+                                                '<div class="input-group mb-1">'+
+                                                    '<span class="input-group-text">Alias*</span>'+
+                                                    '<input type="text" class="form-control" aria-label="last_name" name="alias" aria-describedby="basic-addon1">'+
+                                                    '<input type="hidden" id="person_id" name="person" value="{{person.id}}">'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                               '</div>'+
+                                '<div class="col-md-2" >'+
+                                '<button type="submit" class="btn btn-success btn-md mt-2 me-3 mb-1  float-end" style="width:25% !imporant" >Guardar</button>'+
+                                '</div>'+
+                            '</div>')
+        }
+        function set_notification(message,type){
+            $("#alert").html(message);
+            if(type == 'danger'){
+                $("#alert").removeClass('alert-success');
+                $("#alert").addClass('alert-danger');
+            }else{
+                $("#alert").removeClass('alert-danger');
+                $("#alert").addClass('alert-success');
+            }
+            $("#alert").css('display','block');
+            setTimeout(function(){
+                $("#alert").css('display','none');
+            }, 3500);
+        }
+    </script>
+
+{% endblock content %}

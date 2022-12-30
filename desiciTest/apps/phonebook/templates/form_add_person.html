@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Agregar Contacto{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="container-sm text-center bg-body-secondary p-3 mt-5">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Nombre*</span>
+              <input type="text" class="form-control" aria-label="name" name="name" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Apellidos*</span>
+              <input type="text" class="form-control" aria-label="last_name" name="last_name" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fotografia*</span>
+                <input type="file" class="form-control" id="inputGroupFile02" name="picture">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="basic-addon1">Fecha de nacimiento*</span>
+              <input type="date" class="form-control" aria-label="birth_date" name="birth_date" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2 me-5 mb-1 float-end"   onclick="window.location.href='{% url 'person_render_page' %}' ">Crear Contacto</button>
+    </form>
+    <button type="button" class="btn btn-danger mt-2 me-3 mb-1 float-end" onclick="window.location.href='{% url 'person_view' %}' ">Cancelar</button>
+{% endblock content %}
