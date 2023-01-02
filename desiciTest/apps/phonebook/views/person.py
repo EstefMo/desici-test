@@ -37,7 +37,9 @@ class PersonRenderPage(APIView):
 
     def post(self, request):
         response = PersonView.post(self, request)
-        return redirect('person_edit_page', pk=response.data.id)
+        if "data" in response.data:
+            return redirect('person_edit_page', pk=response.data['data']['id'])
+        return render(request, 'form_add_person.html', {"error":response.data["message"] })
 
 
 class PersonView(APIView):

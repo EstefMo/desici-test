@@ -1,10 +1,12 @@
+import os
+
 from django.db import models
 
 
 class Person(models.Model):
     name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=120)
-    picture = models.ImageField(upload_to='personPhotos/', blank=True)
+    picture = models.TextField(max_length=100)
     birth_date = models.DateField()
 
 

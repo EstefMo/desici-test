@@ -2,6 +2,11 @@
 {% block title %}Agregar Contacto{% endblock %}
 
 {% block content %}
+    {% if error%}
+    <div class="alert alert-danger" id="alert"  role="alert">
+      Algunos campos estan vacios, asegurate de llenar todos los campos.
+    </div>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         <div class="container-sm text-center bg-body-secondary p-3 mt-5">

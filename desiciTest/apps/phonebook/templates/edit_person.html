@@ -60,6 +60,9 @@
                <div class="col-md-12">
                   <div class="input-group mb-3">
                      <span class="input-group-text">Calle*</span>
+                     {% if address.id %}
+                        <input type="hidden"  id="address_id" value="{{address.id}}">
+                     {% endif %}
                      <input type="text" class="form-control" aria-label="street_name" id="street_name" value="{{address.street_name}}" name="street_name" aria-describedby="basic-addon1">
                   </div>
                </div>
@@ -157,9 +160,17 @@
                         <div class="col-md-12">
                            <div class="input-group mb-1">
                               <span class="input-group-text">Tipo*</span>
-                              <select class="form-control" name="type" id="type{{phone.id}}"   value="{{phone.type}}" >
-                                 <option value="1">Casa</option>
-                                 <option value="2">Teléfono móvil</option>
+                              <select class="form-control" name="type" id="type{{phone.id}}" value="{{phone.type}}"   value="{{phone.type}}" >
+                                 <option value="1"
+                                         {% if address.type == 1 %}
+                                          selected
+                                         {% endif %}>
+                                    Casa</option>
+                                 <option value="2"
+                                         {% if address.type == 2 %}
+                                          selected
+                                         {% endif %}>
+                                    Teléfono móvil</option>
                               </select>
                            </div>
                         </div>
@@ -213,8 +224,11 @@
                 'district': $("#district").val(),
                 'state': $("#state").val(),
                 'references': $("#references").val(),
-                'person': $("#person_id").val()
+                'person_id': $("#person_id").val(),
+                'id': $("#address_id").val()
             }
+
+
             $.ajax(
                 {
                   url : "{{ BASE_DIR }}/phonebook/api/v1/person/"+$("#person_id").val()+"/",
@@ -226,9 +240,16 @@
                       },
                   }
             });
+
           $.ajax({
+
+                  {% if address.id %}
                   url : "{{ BASE_DIR }}/phonebook/api/v1/address/"+$("#person_id").val()+"/",
                   type: "PUT",
+                  {% else %}
+                  url : "{{ BASE_DIR }}/phonebook/api/v1/address/",
+                  type: "POST",
+                  {% endif %}
                   data: address,
                   statusCode: {
                       200: function (response) {
@@ -325,6 +346,7 @@
                             '</div>')
         }
         function set_notification(message,type){
+        $('html,body').scrollTop(0);
             $("#alert").html(message);
             if(type == 'danger'){
                 $("#alert").removeClass('alert-success');

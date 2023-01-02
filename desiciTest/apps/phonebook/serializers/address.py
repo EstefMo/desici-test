@@ -12,6 +12,7 @@ class AddressSerializer(serializers.ModelSerializer):
     district = serializers.CharField(max_length=255, required=True)
     state = serializers.CharField(max_length=3, required=True)
     references = serializers.CharField(max_length=255, required=True)
+    person_id = serializers.PrimaryKeyRelatedField(queryset=Person.objects.all()),
 
     class Meta:
         model = Address

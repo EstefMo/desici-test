@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="85471be0-a1ef-4d27-8b11-7b8c7de9c96b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/desiciTest/media/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desiciTest/media/personPhotos/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/serializers/address.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/serializers/address.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/edit_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/edit_person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/address.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/address.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/person.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/desiciTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/desiciTest/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/desiciTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/desiciTest/urls.py" afterDir="false" />
+    </list>
+    <list id="36abd3f5-ca91-48d9-84a6-8d5450204554" name="Changes by cestrada" comment="">
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/serializers/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/serializers/person.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/form_add_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/templates/form_add_person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/desiciTest/apps/phonebook/views/person.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/desiciTest/apps/phonebook/views/person.py">
+      <ranges>
+        <range start1="39" end1="40" start2="39" end2="43" changelist="85471be0-a1ef-4d27-8b11-7b8c7de9c96b" />
+        <range start1="41" end1="42" start2="44" end2="44" changelist="36abd3f5-ca91-48d9-84a6-8d5450204554" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JUkTfS7wKCW0Yl8gErnJl0MtgJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/alemo/OneDrive/Documentos/desici-test",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\apps\phonebook\templates" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\apps\phonebook\views" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\apps\phonebook\serializers" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\venv" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\desiciTest" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\apps" />
+      <recent name="C:\Users\alemo\PycharmProjects\desici-project\desiciTest\apps\phonebook" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="85471be0-a1ef-4d27-8b11-7b8c7de9c96b" name="Changes" comment="" />
+      <created>1672140058821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672140058821</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/desiciTest/apps/phonebook/views/address.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

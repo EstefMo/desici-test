@@ -9,9 +9,10 @@ from apps.phonebook.serializers.address import AddressSerializer
 class AddressView(APIView):
 
     def post(self, request):
+        person = Person.objects.get(id=request.data['person_id'])
         serializer = AddressSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(person=person)
             return Response({'message': 'Address created succesfully',
                              'data': serializer.data}, status=status.HTTP_201_CREATED)
         return Response({'message': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
@@ -24,19 +25,15 @@ class AddressView(APIView):
 class AddressDetailView(APIView):
 
     def get(self, request, person):
-        address = Address.objects.get(person_id=person)
-        if address:
+        if Address.objects.filter(person=person).exists():
+            address = Address.objects.get(person=person)
             return Response(AddressSerializer(address).data, status=status.HTTP_200_OK)
         return Response([], status=status.HTTP_404_NOT_FOUND)
 
     def put(self, request, pk):
-        address = Address.objects.get(person=pk)
-        if address:
+        if Address.objects.filter(person=pk).exists():
+            address = Address.objects.get(person=pk)
             serializer = AddressSerializer(address, data=request.data)
-        else:
-            person = Person.objects.get(id=pk)
-            serializer = AddressSerializer(data=request.data)
-            serializer.person = person
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Address updated succesfully'}, status=status.HTTP_200_OK)
